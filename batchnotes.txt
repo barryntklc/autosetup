@@ -1,0 +1,42 @@
+AS ADMINISTRATOR
+
+RESET ALL INTERFACES
+https://www.hanselman.com/blog/TheNuclearOptionResettingTheCrapOutOfYourNetworkAdaptersInVista.aspx
+
+ipconfig /flushdns
+
+nbtstat -R
+nbtstat -RR
+netsh int ip reset all
+netsh int ip delete dnsservers "Local Area Connection" all
+netsh int ipv4 reset
+netsh int ipv4 delete dnsservers "Local Area Connection" all
+netsh int ipv6 reset
+netsh int ipv6 delete dnsservers "Local Area Connection" all
+netsh winsock reset
+
+
+
+https://www.wincert.net/networking/change-an-ip-address-gateway-and-dns-via-cmd/
+
+SET IP
+netsh int ip set address "Local Area Connection" static 128.171.106.125 255.255.255.0 128.171.106.1
+
+SET DNS
+netsh int ip add dns "Local Area Connection" static 128.171.106.15
+netsh int ip add dns "Local Area Connection" static 128.171.107.11
+
+"SET NETWORK LOCATION" needs Powershell
+https://social.technet.microsoft.com/Forums/windows/en-US/5745047c-d402-4513-8205-2b6e026af7f8/change-network-location-for-an-interface-through-command-line?forum=w7itpronetworking
+
+ACTIVATE ADMINISTRATOR
+https://www.howtogeek.com/howto/windows-vista/enable-the-hidden-administrator-account-on-windows-vista/
+net user administrator /active:yes
+
+CHANGE COMPUTER NAME
+https://www.guidingtech.com/24732/change-computer-name-local-remote-pc/
+
+ADD DOMAIN PREFIX
+https://social.technet.microsoft.com/Forums/sharepoint/en-US/3720415a-6a9a-4bca-aa2a-6df58a1a47d7/change-primary-dns-suffix?forum=winservercore
+HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters
+Domain ham.manoa.hawaii.edu
