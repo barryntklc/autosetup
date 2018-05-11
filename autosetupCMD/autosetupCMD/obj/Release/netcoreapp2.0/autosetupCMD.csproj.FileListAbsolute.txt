@@ -1,0 +1,10 @@
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\netcoreapp2.0\autosetupCMD.deps.json
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\netcoreapp2.0\autosetupCMD.runtimeconfig.json
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\netcoreapp2.0\autosetupCMD.runtimeconfig.dev.json
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\netcoreapp2.0\autosetupCMD.dll
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\netcoreapp2.0\autosetupCMD.pdb
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\netcoreapp2.0\autosetupCMD.csproj.CoreCompileInputs.cache
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\netcoreapp2.0\autosetupCMD.AssemblyInfoInputs.cache
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\netcoreapp2.0\autosetupCMD.AssemblyInfo.cs
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\netcoreapp2.0\autosetupCMD.dll
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\netcoreapp2.0\autosetupCMD.pdb
