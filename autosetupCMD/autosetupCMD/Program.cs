@@ -69,15 +69,16 @@ What would you like to do?
             System.Diagnostics.Process.Start("CMD.exe", @"/C @echo off & echo Activating local administrator... & net user administrator /active:yes & pause");
         }
 
+        //TODO perhaps do this by https://stackoverflow.com/questions/209779/how-can-you-change-network-settings-ip-address-dns-wins-host-name-with-code
         static void OptionNetworkSetup()
         {
             String defaultzone = "128.171";
             String[] defaultdns = { "128.171.106.15", "128.171.107.11" };
 
-            Console.WriteLine("Enter this computer's IP address");
             bool ipvalid = false;
             while (ipvalid == false)
             {
+                Console.WriteLine("Enter this computer's IP address");
                 String IPAddr = GetString();
                 String[] defaults = GetDefaultIPs(defaultzone, IPAddr);
                 if (!(defaults[0].Equals("0") || defaults[1].Equals("0") || defaults[2].Equals("0")))
@@ -131,12 +132,78 @@ What would you like to do?
                         }
                     }
 
+                    String DNS1 = "0";
+                    bool DNS1Valid = false;
+                    while (DNS1Valid == false)
+                    {
+                        Console.WriteLine("Enter this computer's Gateway address (" + "nilDNS1" + ")");
+                        DNS1 = GetString();
+                        if (DNS1.Trim().Equals(""))
+                        {
+                            DNS1 = defaults[2];
+                            DNS1Valid = true;
+                        }
+                        else
+                        {
+                            DNS1 = GetIP(defaultzone, DNS1);
+                            if (!DNS1.Equals("0"))
+                            {
+                                DNS1Valid = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Gateway address is invalid.");
+                            }
+                        }
+                    }
+
+                    String DNS2 = "0";
+                    bool DNS2Valid = false;
+                    while (DNS2Valid == false)
+                    {
+                        Console.WriteLine("Enter this computer's Gateway address (" + "nilDNS2" + ")");
+                        DNS2 = GetString();
+                        if (DNS2.Trim().Equals(""))
+                        {
+                            DNS2 = defaults[2];
+                            DNS2Valid = true;
+                        }
+                        else
+                        {
+                            DNS2 = GetIP(defaultzone, DNS2);
+                            if (!DNS2.Equals("0"))
+                            {
+                                DNS2Valid = true;
+                            }
+                            else
+                            {
+                                Console.WriteLine("Gateway address is invalid.");
+                            }
+                        }
+                    }
+
                     Console.WriteLine("IPAddr: " + IPAddr);
                     Console.WriteLine("Subnet: " + Subnet);
                     Console.WriteLine("Gateway: " + Gateway);
+                    Console.WriteLine("DNS1: " + DNS1);
+                    Console.WriteLine("DNS2: " + DNS2);
 
-                    //enter dns
                     Console.WriteLine("Are you sure you want to change your IP settings?");
+                    //todo yes no question
+                    bool result = true;
+                    if (result)
+                    {
+                        String setIPString = @"netsh int ip set address ""Local Area Connection"" static " + IPAddr + " " + Subnet + " " + Gateway;
+                        String setDNS1String = @"netsh int ip add dns ""Local Area Connection"" " + DNS1 + " validate=no";
+                        String setDNS2String = @"netsh int ip add dns ""Local Area Connection"" " + DNS2 + " validate=no";
+
+                        System.Diagnostics.Process.Start("CMD.exe", @"/C pause & echo Wiping current network settings... & ipconfig /flushdns & nbtstat -R & nbtstat-RR & netsh int ip reset all & netsh int ip delete dnsservers ""Local Area Network Connection"" all & netsh int ipv4 reset & netsh int ipv6 reset & echo Setting IP... & " + setIPString + " & echo Setting DNS1... & " + setDNS1String + " & echo Setting DNS2... & " + setDNS2String + " & pause");
+                        //System.Diagnostics.Process.Start("CMD.exe", @"/C @echo off & echo Wiping current network settings... & ipconfig /flushdns & nbtstat -R & nbtstat-RR & netsh int ip reset all & netsh int ip delete dnsservers ""Local Area Network Connection"" all & netsh int ipv4 reset & netsh int ipv6 reset & " + setIPString + " & " + setDNS1String + " & " + setDNS2String + " & pause");
+                        //System.Diagnostics.Process.Start("CMD.exe", @"/C netsh int ip set address ""Local Area Connection"" static " + IPAddr + " " + Subnet + " " + Gateway);
+                        //System.Diagnostics.Process.Start("CMD.exe", @"/C netsh int ip add dns ""Local Area Connection"" static " + DNS1);
+                        //System.Diagnostics.Process.Start("CMD.exe", @"/C netsh int ip add dns ""Local Area Connection"" static " + DNS2);
+                        break;
+                    }
                 } else
                 {
                     Console.WriteLine("Invalid IP settings.");

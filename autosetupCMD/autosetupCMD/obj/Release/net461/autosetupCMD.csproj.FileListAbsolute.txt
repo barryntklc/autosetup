@@ -1,0 +1,8 @@
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\net461\autosetupCMD.exe
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\bin\Release\net461\autosetupCMD.pdb
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.csproj.CoreCompileInputs.cache
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.AssemblyInfoInputs.cache
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.AssemblyInfo.cs
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.exe
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.pdb
+C:\SmartGit\autosetup\autosetupCMD\autosetupCMD\obj\Release\net461\autosetupCMD.csprojAssemblyReference.cache
