@@ -37,6 +37,10 @@ namespace autosetupCMD
                         break;
                     case 5:
                         break;
+                    case 6:
+                        break;
+                    case 7:
+                        break;
                     default:
                         break;
                 }
@@ -53,9 +57,11 @@ What would you like to do?
 
     [1] Activate the local administrator account.
     [2] Change this computer's network settings.
-    [3] Move a user's files to a separate drive. (Not Implemented)
-    [4] Configure this computer from a JSON file. (Not Implemented)
-    [5] Reimage this computer. (Not Implemented)
+    [3] Change this computer's name. (Not Implemented)
+    [4] Set up autologin. (Not Implemented)
+    [5] Move a user's files to a separate drive. (Not Implemented)
+    [6] Configure this computer from a JSON file. (Not Implemented)
+    [7] Reimage this computer. (Not Implemented)
     [0] Exit.
 
 ");
